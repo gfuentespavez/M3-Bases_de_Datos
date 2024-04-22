@@ -61,7 +61,7 @@ Este proceso actualiza tu rama main local con la última versión del main del r
 Crea una nueva rama basada en main para tus cambios:
 
 ```bash
-git checkout -b nombre-rama
+git checkout -b develop
 ```
 
 Trabajar en una rama específica ayuda a mantener organizado tu trabajo y a separarlo de otros cambios concurrentes en el repositorio.
