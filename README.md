@@ -49,7 +49,17 @@ Antes de comenzar a trabajar en cambios nuevos, sincroniza tu fork:
 
 ```bash
 git fetch upstream
+```
+
+Este comando se utiliza para actualizar tu repositorio local con los cambios del original (upstream)
+
+```bash
 git checkout main
+```
+
+Este comando asegura que todos los merges o cambios que realices sean aplicados en la rama `main`.
+
+```bash
 git merge upstream/main
 ```
 Este proceso actualiza tu rama main local con la última versión del main del repositorio original.
