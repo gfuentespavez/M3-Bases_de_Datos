@@ -30,3 +30,23 @@ ALTER TABLE nombre_tabla MODIFY columna1 datatype NOT NULL;
 
 -- Agregar restriccion 'UNIQUE'.
 ALTER TABLE nombre_tabla ADD CONSTRAINT nombre_unique UNIQUE (columna);
+
+-- Seleccionar columnas específicas de una tabla con condición y ordenamiento.
+SELECT columna1, columna2 
+FROM nombre_tabla 
+WHERE columna1 = valor1 AND columna2 > valor2 
+ORDER BY columna1 DESC;
+
+-- Seleccionar con límite de resultados y agregación.
+SELECT COUNT(*) 
+FROM nombre_tabla 
+WHERE columna1 = valor 
+LIMIT 10;
+
+-- Seleccionar con agregación y agrupación con una unión de tablas.
+SELECT t1.columna1, COUNT(*)
+FROM tabla1 AS t1 
+JOIN tabla2 AS t2 
+ON t1.columna_fk = t2.columna_fk
+GROUP BY t1.columna1
+ORDER BY COUNT(*) DESC;
