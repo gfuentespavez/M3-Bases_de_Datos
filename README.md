@@ -40,7 +40,7 @@ git clone https://github.com/G7-Full-Stack-Java-Trainee/M3-Bases_de_Datos
 Para mantener tu fork sincronizado con el repositorio original, añádelo como un remote llamado upstream:
 
 ```bash
-git remote add upstream https://github.com/organizacion/repositorio.git
+git remote add upstream https://github.com/[nombre_del_usuario]/M3-Bases_de_Datos.git
 ```
 
 ### 4. Sincronizar tu Fork
@@ -61,7 +61,7 @@ Este proceso actualiza tu rama main local con la última versión del main del r
 Crea una nueva rama basada en main para tus cambios:
 
 ```bash
-git checkout -b nombre-rama
+git checkout -b develop
 ```
 
 Trabajar en una rama específica ayuda a mantener organizado tu trabajo y a separarlo de otros cambios concurrentes en el repositorio.
