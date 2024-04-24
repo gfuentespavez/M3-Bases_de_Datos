@@ -73,7 +73,6 @@ mawashi_cars(# id_auto INT, cliente VARCHAR(25), referencia INT, cantidad FLOAT,
 mawashi_cars(# metodo_pago VARCHAR(10), FOREING KEY (id_auto) REFERENCES autos(id));
 ERROR:  no existe el tipo «key»
 LINE 3: metodo_pago VARCHAR(10), FOREING KEY (id_auto) REFERENCES au...
-                                         ^
 mawashi_cars=# CREATE TABLE ventas(id SERIAL UNIQUE NOT NULL, fecha VARCHAR(20),
 mawashi_cars(# id_auto INT, cliente VARCHAR(25), referencia INT, cantidad FLOAT,
 mawashi_cars(# metodo_pago VARCHAR(10), FOREIGN KEY (id_auto) REFERENCES autos(id));
@@ -177,6 +176,5 @@ mawashi_cars-# WHERE autos.id is null or ventas.id_auto is null;
   9 | Suzuki     | Swift  | 2019 | Gris Oxford | 6200000 |    |       |         |         |            |          |
   7 | Volkswagen | Gol    | 2015 | Azul Marino | 3500000 |    |       |         |         |            |          |
 (5 rows)
-
 
 mawashi_cars=# \q
