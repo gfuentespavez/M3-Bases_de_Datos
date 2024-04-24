@@ -1,5 +1,4 @@
 --ejercicio guiado dia 7 definicion de tablas
-
 PS C:\Users\pauli> psql -U postgres
 Contraseña para usuario postgres:
 
