@@ -30,7 +30,7 @@ INSERT INTO autos (id, marca, modelo, año, color, precio) VALUES (9,
 'Suzuki', 'Swift', 2019, 'Gris Oxford', 6200000);
 INSERT INTO autos (id, marca, modelo, año, color, precio) VALUES (10,
 'Peugeot', '208', 2021, 'Rojo', 9800000);
---Paso 6: Insertamos algunas ventas.
+--Paso 6: Insertamos algunas ventas.git fetch upstream
 INSERT INTO ventas (fecha, id_auto, cliente, referencia, cantidad,
 metodo_pago) VALUES('2020-10-15', 1, 'Chuck', 43224, 12000000,'Débito');
 INSERT INTO ventas (fecha, id_auto, cliente, referencia, cantidad,
@@ -60,3 +60,4 @@ WHERE ventas IS NULL;
 --saber los registros que no tienen relación entre ambas tablas para hacer el cruce con la información cedida anteriormente y terminar la auditoría.
 SELECT * FROM autos FULL OUTER JOIN ventas on ventas.id_auto=autos.id
 WHERE autos.id is null or ventas.id_auto is null;
+
