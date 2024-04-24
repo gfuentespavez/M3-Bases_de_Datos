@@ -63,3 +63,18 @@ INSERT INTO ventas (fecha, id_auto, cliente, referencia, cantidad, metodo_pago)
 VALUES ('2021-05-25', 5, 'Luis', 54324, 10500000, 'Transfer');
 /* Insertamos registros y valores a la tabla ventas */
 
+--Paso 7: Obtenemos un reporte con el nombre de los clientes registrados en la tabla venta, junto con la marca
+y el modelo del auto asociado a la venta realizada.--
+SELECT cliente, marca, modelo FROM ventas INNER JOIN autos ON ventas.id_auto=autos.id;
+
+Realizar la consulta necesaria para obtener todos los autos cuyos id no se encuentran en la
+tabla Ventas.
+SELECT autos.* FROM autos LEFT JOIN ventas on autos.id=ventas.id_auto
+WHERE ventas IS NULL;
+
+El dueño de la empresa Mawashi Cars se dio cuenta que para facilitar el proceso de
+auditoría, sería beneﬁcioso saber los registros que no tienen relación entre ambas tablas
+para hacer el cruce con la información cedida anteriormente y terminar la auditoría.
+Realizar la sentencia SQL necesaria para satisfacer este requerimiento.
+SELECT * FROM autos FULL OUTER JOIN ventas on ventas.id_auto=autos.id
+WHERE autos.id is null or ventas.id_auto is null;
