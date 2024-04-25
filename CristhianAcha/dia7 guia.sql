@@ -1,23 +1,21 @@
---Esto es un archivo sql
+-- dia 7 guia
 
-CREATE DATABASE mawashi_cars;
+● Paso 1: Creamos la base de datos con el nombre mawashi_cars.
+    create database mawashi_cars;
 
--- conectarse a base creada
-\c mawashi_cars;
+● Paso 2: Nos conectamos a la base de datos.
+    \c mawashi_cars;
 
--- Se crea la tabla autos
-
+● Paso 3: Creamos la tabla autos.
 create table autos(id int primary key, marca varchar(25), modelo
 varchar(25), año varchar(25), color varchar(25), precio float);
 
--- Se crea la tabla ventas
-
+● Paso 4: Creamos la tabla de ventas.
 create table ventas(id serial unique not null, fecha varchar(20),
 id_auto int, cliente varchar(25), referencia int, cantidad float,
 metodo_pago varchar(10), foreign key (id_auto) references autos(id));
 
--- Se insertan registros en tabla autos
-
+Paso 5: Insertamos 3 registros en la tabla autos.
 insert into autos (id, marca, modelo, año, color, precio) values (1,
 'Toyota', 'Corolla Araya', '1991', 'Blanco', 1200000);
 insert into autos (id, marca, modelo, año, color, precio) values (2,
@@ -39,8 +37,7 @@ INSERT INTO autos (id, marca, modelo, año, color, precio) VALUES (9,
 INSERT INTO autos (id, marca, modelo, año, color, precio) VALUES (10,
 'Peugeot', '208', 2021, 'Rojo', 9800000);
 
--- Se insertan registros en la tabla ventas
-
+● Paso 6: Insertamos algunas ventas.
 insert into ventas (fecha, id_auto, cliente, referencia, cantidad,
 metodo_pago) values('2020-10-15', 1, 'Chuck', 43224, 12000000,
 'Débito');
@@ -70,30 +67,24 @@ INSERT INTO ventas (fecha, id_auto, cliente, referencia, cantidad,
 metodo_pago)
 VALUES ('2021-05-25', 5, 'Luis', 54324, 10500000, 'Transfer');
 
-/*Obtenemos un reporte con el nombre de los clientes registrados en la tabla
-venta, junto con la marca y el modelo del auto asociado a la venta realizada.*/
+Paso 7: Obtenemos un reporte con el nombre de los clientes registrados en la tabla
+venta, junto con la marca y el modelo del auto asociado a la venta realizada.
+SELECT cliente, marca, modelo FROM ventas INNER JOIN autos ON
+ventas.id_auto=autos.id;
 
-SELECT cliente, marca, modelo FROM ventas v INNER JOIN autos a ON
-v.id_auto=a.id;
 
-
-/* Realizar la consulta necesaria para obtener todos los autos cuyos id no se encuentran en la
+Realizar la consulta necesaria para obtener todos los autos cuyos id no se encuentran en la
 tabla Ventas.
- */
-
 SELECT autos.* FROM autos LEFT JOIN ventas on autos.id=ventas.id_auto
 WHERE ventas IS NULL;
 
-/*
 
 El dueño de la empresa Mawashi Cars se dio cuenta que para facilitar el proceso de
 auditoría, sería beneficioso saber los registros que no tienen relación entre ambas tablas
 para hacer el cruce con la información cedida anteriormente y terminar la auditoría.
-Realizar la sentencia SQL necesaria para satisfacer este requerimiento.
-
-
-*/
-
 SELECT * FROM autos FULL OUTER JOIN ventas on ventas.id_auto=autos.id
 WHERE autos.id is null or ventas.id_auto is null;
+
+
+
 
