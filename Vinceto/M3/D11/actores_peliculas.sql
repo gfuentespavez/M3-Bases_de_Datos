@@ -13,9 +13,9 @@ CREATE TABLE Peliculas (
 
 -- Creación de la tabla intermedia para la relación N:N entre actores y películas
 CREATE TABLE ActoresPeliculas (
-    id_pelicula INT,
-    id_actor INT,
-    PRIMARY KEY (id_actor, pelicula),
-    FOREIGN KEY (id_actor) REFERENCES Actores(id_actor),
-    FOREIGN KEY (id_pelicula) REFERENCES Peliculas(id_pelicula)
+    pelicula_id INT,
+    actor_id INT,
+    PRIMARY KEY (actor_id, pelicula_id),
+    FOREIGN KEY (actor_id) REFERENCES Actores(actor_id),
+    FOREIGN KEY (pelicula_id) REFERENCES Peliculas(pelicula_id)
 );
