@@ -1,1 +1,0 @@
-CREATE DATABASE no creo entender;
